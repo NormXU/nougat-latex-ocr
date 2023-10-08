@@ -1,5 +1,4 @@
 # -*- coding:utf-8 -*-
-# email:xunuo@datagrand.com
 # create: @time: 9/22/23 16:11
 
 from PIL import Image

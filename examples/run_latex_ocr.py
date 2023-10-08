@@ -1,5 +1,4 @@
 # -*- coding:utf-8 -*-
-# email:xunuo@datagrand.com
 # create: @time: 10/8/23 11:47
 import argparse
 
@@ -15,8 +14,8 @@ from nougat_latex.image_processing_nougat import NougatImageProcessor
 
 def parse_option():
     parser = argparse.ArgumentParser(prog="nougat inference config", description="model archiver")
-    parser.add_argument("--pretrained_model_name_or_path", default="/home/nougat/cache")
-    parser.add_argument("--img_path", default="/home/nougat/examples/test_data/eq3.png")
+    parser.add_argument("--pretrained_model_name_or_path", default="Norm/nougat-latex-base")
+    parser.add_argument("--img_path", default="/home/nougat/examples/test_data/eq1.png")
     parser.add_argument("--device", default="gpu")
     return parser.parse_args()
 

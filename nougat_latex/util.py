@@ -1,5 +1,4 @@
 # -*- coding:utf-8 -*-
-# email:xunuo@datagrand.com
 # create: @time: 10/8/23 11:55
 
 import re
