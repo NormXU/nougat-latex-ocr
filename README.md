@@ -12,6 +12,7 @@ Evaluated on an image-equation pair dataset collected from Wikipedia, arXiv, and
 | --- | --- | --- |
 |pix2tex*|0.60|0.10|
 |nougat-latex-based| **0.623850** | **0.06180** |
+
 pix2tex*: reported from [LaTeX-OCR](https://github.com/lukas-blecher/LaTeX-OCR); nougat-latex-based is evaluated on results generated with beam-search strategy. 
 
 ### Uses
