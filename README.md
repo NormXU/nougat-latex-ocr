@@ -16,11 +16,12 @@ Evaluated on an image-equation pair dataset collected from Wikipedia, arXiv, and
 pix2tex*: reported from [LaTeX-OCR](https://github.com/lukas-blecher/LaTeX-OCR); nougat-latex-based is evaluated on results generated with beam-search strategy. 
 
 ### Uses
-1. install dependency
+1. Download model [here](https://huggingface.co/Norm/nougat-latex-base)
+2. Install dependency
 ```bash
 pip install -r all_requirements.txt
 ```
-2. you can find an example in examples folder
+3. You can find an example in examples folder
 ```python
 python examples/run_latex_ocr.py
 ```
