@@ -3,7 +3,7 @@ device:
   allow_tf32: true
 model:
   type: VisionEncoderDecoderModel
-  pretrained_model_name_or_path: /home/ysocr/data/pretrain/donut/nougat-base
+  pretrained_model_name_or_path: facebook/nougat-base
   max_length: 800
   image_size: [224, 560]  # height, width
   quantization_type: ''
