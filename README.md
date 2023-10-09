@@ -10,11 +10,13 @@ Evaluated on an image-equation pair dataset collected from Wikipedia, arXiv, and
 
 |model| token_acc ↑ | normed edit distance ↓ |
 | --- | --- | --- |
-|pix2text| 0.5346 | 0.10312
+|pix2tex| 0.5346 | 0.10312
 |pix2tex*|0.60|0.10|
 |nougat-latex-based| **0.623850** | **0.06180** |
 
-**pix2tex***: reported from [LaTeX-OCR](https://github.com/lukas-blecher/LaTeX-OCR);  **pix2tex**: my implementations; **nougat-latex-based**: evaluated on results generated with beam-search strategy. 
+pix2tex is a ResNet + ViT + Text Decoder architecture introduced in [LaTeX-OCR](https://github.com/lukas-blecher/LaTeX-OCR).
+
+**pix2tex***: reported from [LaTeX-OCR](https://github.com/lukas-blecher/LaTeX-OCR);  **pix2tex**: my evaluation with the released [checkpoint](https://github.com/lukas-blecher/LaTeX-OCR/releases/tag/v0.0.1) ; **nougat-latex-based**: evaluated on results generated with beam-search strategy. 
 
 ## Uses
 ### fine-tune on your customized dataset
