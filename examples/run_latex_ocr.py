@@ -15,7 +15,7 @@ from nougat_latex.image_processing_nougat import NougatImageProcessor
 def parse_option():
     parser = argparse.ArgumentParser(prog="nougat inference config", description="model archiver")
     parser.add_argument("--pretrained_model_name_or_path", default="Norm/nougat-latex-base")
-    parser.add_argument("--img_path", default="/home/nougat/examples/test_data/eq1.png")
+    parser.add_argument("--img_path", help="path to latex image segment", required=True)
     parser.add_argument("--device", default="gpu")
     return parser.parse_args()
 
@@ -45,7 +45,6 @@ def run_nougat_latex():
         image = image.convert('RGB')
 
     pixel_values = latex_processor(image)
-
     task_prompt = tokenizer.bos_token
     decoder_input_ids = tokenizer(task_prompt, add_special_tokens=False,
                                   return_tensors="pt").input_ids

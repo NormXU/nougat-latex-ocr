@@ -5,17 +5,27 @@ Since the initial encoder input image size of nougat was unsuitable for equation
 Additionally, an adaptive padding approach is used to ensure that equation image segments in the wild are resized to closely match the resolution of the training data.
 
 
-### Evaluation
+## Evaluation
 Evaluated on an image-equation pair dataset collected from Wikipedia, arXiv, and im2latex-100k, curated by [lukas-blecher](https://github.com/lukas-blecher/LaTeX-OCR#data)
 
 |model| token_acc ↑ | normed edit distance ↓ |
 | --- | --- | --- |
+|pix2text| 0.5346 | 0.10312
 |pix2tex*|0.60|0.10|
 |nougat-latex-based| **0.623850** | **0.06180** |
 
-pix2tex*: reported from [LaTeX-OCR](https://github.com/lukas-blecher/LaTeX-OCR); nougat-latex-based is evaluated on results generated with beam-search strategy. 
+**pix2tex***: reported from [LaTeX-OCR](https://github.com/lukas-blecher/LaTeX-OCR);  **pix2tex**: my implementations; **nougat-latex-based**: evaluated on results generated with beam-search strategy. 
 
-### Uses
+## Uses
+### fine-tune on your customized dataset
+1. Prepare your dataset in [this](https://drive.google.com/drive/folders/13CA4vAmOmD_I_dSbvLp-Lf0s6KiaNfuO) format
+2. Change ``config/base.yaml``
+3. Run the training script
+```python
+python tools/train_experiment.py --config_file config/base.yaml --phase 'train'
+```
+
+### predict
 1. Download model [here](https://huggingface.co/Norm/nougat-latex-base)
 2. Install dependency
 ```bash
@@ -23,7 +33,7 @@ pip install -r all_requirements.txt
 ```
 3. You can find an example in examples folder
 ```python
-python examples/run_latex_ocr.py
+python examples/run_latex_ocr.py --img_path "examples/test_data/eq1.png"
 ```
 
 ### QA
