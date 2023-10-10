@@ -7,9 +7,7 @@ from PIL import Image
 from transformers import VisionEncoderDecoderModel
 from transformers.models.nougat import NougatTokenizerFast
 from nougat_latex.util import process_raw_latex_code
-
 from nougat_latex import NougatLaTexProcessor
-from nougat_latex.image_processing_nougat import NougatImageProcessor
 
 
 def parse_option():
@@ -32,19 +30,15 @@ def run_nougat_latex():
     model = VisionEncoderDecoderModel.from_pretrained(args.pretrained_model_name_or_path).to(device)
 
     # init processor
-    tokenizer = NougatTokenizerFast.from_pretrained(
-        pretrained_model_name_or_path=args.pretrained_model_name_or_path
-    )
-
-    image_processor = NougatImageProcessor.from_pretrained(args.pretrained_model_name_or_path)
-    latex_processor = NougatLaTexProcessor(image_processor=image_processor)
+    tokenizer = NougatTokenizerFast.from_pretrained(args.pretrained_model_name_or_path)
+    latex_processor = NougatLaTexProcessor.from_pretrained(args.pretrained_model_name_or_path)
 
     # run test
     image = Image.open(args.img_path)
     if not image.mode == "RGB":
         image = image.convert('RGB')
 
-    pixel_values = latex_processor(image)
+    pixel_values = latex_processor(image, return_tensors="pt").pixel_values
     task_prompt = tokenizer.bos_token
     decoder_input_ids = tokenizer(task_prompt, add_special_tokens=False,
                                   return_tensors="pt").input_ids
@@ -62,7 +56,8 @@ def run_nougat_latex():
             return_dict_in_generate=True,
         )
     sequence = tokenizer.batch_decode(outputs.sequences)[0]
-    sequence = sequence.replace(tokenizer.eos_token, "").replace(tokenizer.pad_token, "").replace(tokenizer.bos_token, "")
+    sequence = sequence.replace(tokenizer.eos_token, "").replace(tokenizer.pad_token, "").replace(tokenizer.bos_token,
+                                                                                                  "")
     sequence = process_raw_latex_code(sequence)
     print(sequence)
 
