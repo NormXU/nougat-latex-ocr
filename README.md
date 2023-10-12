@@ -1,7 +1,10 @@
 # Nougat-LaTeX-OCR
-  
+
+<img src="./asset/img2latex.jpeg" width="600">
+
 Nougat-LaTeX-based is fine-tuned from [facebook/nougat-base](https://huggingface.co/facebook/nougat-base) with [im2latex-100k](https://zenodo.org/record/56198#.V2px0jXT6eA) to boost its proficiency in generating LaTeX code from images. 
 Since the initial encoder input image size of nougat was unsuitable for equation image segments, leading to potential rescaling artifacts that degrades the generation quality of LaTeX code. To address this, Nougat-LaTeX-based adjusts the input resolution and uses an adaptive padding approach to ensure that equation image segments in the wild are resized to closely match the resolution of the training data.
+Download the model [here](https://huggingface.co/Norm/nougat-latex-base) 👈🏻.
 
 
 ## Evaluation
@@ -27,7 +30,7 @@ python tools/train_experiment.py --config_file config/base.yaml --phase 'train'
 ```
 
 ### predict
-1. Download model [here](https://huggingface.co/Norm/nougat-latex-base)
+1. [Download](https://huggingface.co/Norm/nougat-latex-base) the model
 2. Install dependency
 ```bash
 pip install -r all_requirements.txt
