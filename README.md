@@ -44,3 +44,5 @@ python examples/run_latex_ocr.py --img_path "examples/test_data/eq1.png"
 - **Q:** Why did you copy and place the `image_processor_nougat.py` file in the repository rather than simply importing it from the `transformers` library if there are no changes compared to the one in `huggingface/transformers`?
 
 - **A:** `transformers 4.34.0` is the first version that natively supports the nougat. However, there is a bug in the nougat processor within this version, which can result in a run failure. You can review the details of this issue [here](https://github.com/huggingface/transformers/issues/26597). Fortunately, the developers have already addressed this bug, and I anticipate that you will be able to directly import it from `transformers` in the next released version.
+
+**please consider leaving me a star if you find this repo helpful :)**
