@@ -37,7 +37,7 @@ pip install -r all_requirements.txt
 ```
 3. You can find an example in examples folder
 ```python
-python examples/run_latex_ocr.py --img_path "examples/test_data/eq1.png"
+python run_latex_ocr.py --img_path "examples/test_data/eq1.png"
 ```
 
 ### QA
